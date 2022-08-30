@@ -48,7 +48,7 @@ header {
     left: 0;
     width: 100%;
     padding: 20px 100px;
-    z-index: 10;
+    z-index: 101;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -227,18 +227,18 @@ form{
     text-align: center;
 }
 
-.middle-container .recent {
+.recent {
     padding: 0.5em;
 }
 
-.middle-container .recent h4 {
+.recent h4 {
     font-family: 'Roboto';
     font-weight: 300;
     font-style: italic;
     text-decoration: underline;
 }
 
-.middle-container .recent h4 span{
+.recent h4 span{
     color: #fff;
     font-size:2em;
     background-color: #000;
@@ -246,7 +246,7 @@ form{
     border-radius: 50%;
 }
 
-.middle-container .recent .projects {
+.recent .projects {
     padding: 2em;
     display: grid;
     grid-gap: 1em;
@@ -254,24 +254,38 @@ form{
     font-family: 'Poppins';
 }
 
-.middle-container .recent .projects .project {
+.recent .projects .seeproject:hover .project{
+    transform: scale(1.1);
+    z-index: 100;
+}
+
+.recent .projects .project {
     padding: 0.5em;
     border-radius: 3px;
-    border: 1px solid #ddd;
     font-family: 'Roboto';
-}
-
-.middle-container .recent .projects .project .project-title{
-    text-transform: uppercase;
     position: relative;
+    box-shadow: 0 0 5px rgb(184, 184, 184);
+    background-color: #fff;
 }
 
-.middle-container .recent .projects .project .project-title a{
+.recent .projects .project .project-title{
+    text-transform: uppercase;
     color: #111;
     font-weight: bold;
     font-size:1em;
     padding: 1em;
     margin:0 0.2em;
+}
+
+.recent .projects .project .project-title span{
+    position: absolute;
+    border:1px solid rgba(175, 175, 175, 0.391);
+    padding:2px;color:white;
+    margin: 0 2px;
+    border-radius: 5px;
+    top: 3px;
+    left: 3px;
+    transform: rotate(90deg);
 }
 
 /* ----- */

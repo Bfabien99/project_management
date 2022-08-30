@@ -1,6 +1,4 @@
 <?php include('includes/header.php')?>
-<style>
-</style>
 <div id="new" class="d-flex">
 <h5>Edit project</h5>
 <a href="./" class="btn-secondary">Back</a>

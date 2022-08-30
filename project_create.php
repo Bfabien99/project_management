@@ -2,6 +2,7 @@
 <?php
 $error = [];
 $success = false;
+$color = "#000";
 
 if(isset($_POST['create'])){
     if(empty($_POST['title'])){
@@ -46,11 +47,15 @@ if(isset($_POST['create'])){
         $url = $_POST['url'];
     }
 
+    if(!empty($_POST['color'])){
+        $color = $_POST['color'];
+    }
+
     if(!empty($title) && !empty($description) && !empty($start) && !empty($language) && !empty($author) && !empty($url)){
         $uid = uniqid();
 
         if(!isProject($title,$description,$url)){
-            if(insertProject($uid,$title,$description,$start,$language,$author,$etat,$url)){
+            if(insertProject($uid,$title,$description,$start,$language,$author,$etat,$url,$color)){
             $success = true;
             }else{
                 $error['query'] = "<p class='error'>Sorry, an error occured. Try later</p>";
@@ -108,6 +113,10 @@ if(isset($_POST['create'])){
         <label for="url">Project Url</label>
         <input type="url" name="url" id="url" value="<?php echo $_POST['url'] ?? ""; ?>">
         <?php echo $error['url'] ?? ""; ?>
+    </div>
+    <div class="d-flex group">
+        <label for="color">Pick a color to identify your project(optional)</label>
+        <input type="color" name="color" id="color" value="<?php echo $_POST['color'] ?? ""; ?>">
     </div>
     <input type="submit" name="create" value="Save">
     <?php endif;?>

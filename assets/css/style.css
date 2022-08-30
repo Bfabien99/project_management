@@ -267,12 +267,10 @@ form{
 }
 
 .middle-container .recent .projects .project .project-title a{
-    position: absolute;
     color: #111;
     font-weight: bold;
     font-size:1em;
     padding: 1em;
-    bottom: 0;
     margin:0 0.2em;
 }
 

@@ -44,11 +44,16 @@ $notfinished = getNotFinishedProjects(3);
                 <?php if(!empty($projects)):?>
                     <?php foreach($projects as $project):?>
                     <div class="project">
-                        <h3 class="project-title"><?php echo $project['title'] ?> <a href="see.php?uid=<?php echo $project['uid'];?>">>></a> </h3>
+                        <h3 class="project-title"><span style="background-color: <?php echo $project['color'] ?>;border:1px solid black;padding:2px;color:white;margin: 0 2px;">*</span><?php echo $project['title'] ?> <a href="project_view.php?uid=<?php echo $project['uid'];?>">(see)</a> </h3>
                         <hr>
                         <p>Languages : #<?php echo  str_replace(' ',' #',$project['language']);?></p>
                         <p>Started : <?php echo  date('M, jS Y',strtotime($project['start']));?></p>
                         <p>Posted : <?php echo  date('M, jS Y',strtotime($project['created']));?></p>
+                        <?php if($project['etat'] == 0 ):?>
+                            <p>Etat : <?php echo "not finished"?></p>
+                        <?php else:?>
+                            <p>Etat : <?php echo "finished"?></p>
+                        <?php endif;?>
                     </div>
                     <?php endforeach;?>
                 <?php else:?>
@@ -64,11 +69,16 @@ $notfinished = getNotFinishedProjects(3);
                 <?php if(!empty($starred)):?>
                     <?php foreach($starred as $star):?>
                     <div class="project">
-                        <h3 class="project-title"><?php echo $star['title'] ?> <a href="see.php?uid=<?php echo $star['uid'];?>">>></a> </h3>
+                        <h3 class="project-title"><span style="background-color: <?php echo $star['color'] ?>;border:1px solid black;padding:2px;color:white;margin: 0 2px;">*</span><?php echo $star['title'] ?> <a href="project_view.php?uid=<?php echo $star['uid'];?>"><(see)/a> </h3>
                         <hr>
                         <p>Languages : #<?php echo  str_replace(' ',' #',$star['language']);?></p>
                         <p>Started : <?php echo  date('M, jS Y',strtotime($star['start']));?></p>
                         <p>Posted : <?php echo  date('M, jS Y',strtotime($star['created']));?></p>
+                        <?php if($star['etat'] == 0 ):?>
+                            <p>Etat : <?php echo "not finished"?></p>
+                        <?php else:?>
+                            <p>Etat : <?php echo "finished"?></p>
+                        <?php endif;?>
                     </div>
                     <?php endforeach;?>
                 <?php else:?>
@@ -84,7 +94,7 @@ $notfinished = getNotFinishedProjects(3);
                 <?php if(!empty($finished)):?>
                     <?php foreach($finished as $finish):?>
                     <div class="project">
-                        <h3 class="project-title"><?php echo $finish['title'] ?> <a href="see.php?uid=<?php echo $finish['uid'];?>">>></a> </h3>
+                        <h3 class="project-title"><span style="background-color: <?php echo $finish['color'] ?>;border:1px solid black;padding:2px;color:white;margin: 0 2px;">*</span><?php echo $finish['title'] ?> <a href="project_view.php?uid=<?php echo $finish['uid'];?>">(see)</a> </h3>
                         <hr>
                         <p>Languages : #<?php echo  str_replace(' ',' #',$finish['language']);?></p>
                         <p>Started : <?php echo  date('M, jS Y',strtotime($finish['start']));?></p>

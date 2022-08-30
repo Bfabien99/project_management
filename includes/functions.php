@@ -22,11 +22,11 @@ function escapeString($string)
     return $new_string;
 }
 
-function insertProject($uid,$title,$description,$start,$language,$author,$etat,$url){
+function insertProject($uid,$title,$description,$start,$language,$author,$etat,$url,$color){
     global $db;
 
-    $sql = "INSERT INTO projects (uid, title, description, start, language, author, etat, url) ";
-    $sql .= " VALUES('{$uid}','{$title}','{$description}','{$start}','{$language}','{$author}','{$etat}','{$url}')";
+    $sql = "INSERT INTO projects (uid, title, description, start, language, author, etat, url, color) ";
+    $sql .= " VALUES('{$uid}','{$title}','{$description}','{$start}','{$language}','{$author}','{$etat}','{$url}','{$color}')";
 
     if($db->query($sql)){
         return true;
